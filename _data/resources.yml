@@ -1,51 +1,147 @@
-# Resources page cards.
-# Each card has a title, an optional blurb, and a list of links.
-# For a link with no URL (like a phone number), leave url blank.
+# Resources page.
+# Each card has a title, an optional blurb, and a list of items.
+# Each item is a dropdown: name (what shows when closed), details (bullet points), links.
+# details and links are both optional.
 
 - title: "Local Mental Health Resources"
-  blurb: "Denver-area support."
-  links:
-    - name: "Placeholder resource"
-      url: ""
-      note: "Add details"
+  blurb: "Denver-area support and free programs."
+  items:
+    - name: "Yarrow Collective"
+      details:
+        - "Colorado-based organization offering non-carceral, consent-based services of peer support, recovery, and harm reduction, by/for/with people with lived experience."
+      links:
+        - name: "Website"
+          url: "https://www.yarrowcollective.org/"
+        - name: "@yarrowcollectivecolorado"
+          url: "https://www.instagram.com/yarrowcollectivecolorado"
+    - name: "The Center on Colfax"
+      details:
+        - "Offers 12 free sessions, in person or virtual."
+        - "There's a bit of a waitlist right now, usually no more than 4 to 6 weeks. Fill out the intake form to be contacted for a quick intake process."
+      links:
+        - name: "Intake form"
+          url: "https://lgbtqcolorado.org/programs/glass-lawler-mental-health/"
+        - name: "Website"
+          url: "https://lgbtqcolorado.org"
+        - name: "@centeroncolfax"
+          url: "https://www.instagram.com/CenterOnColfax/"
+    - name: "Spark Change"
+      details:
+        - "Offers 10 free sessions, in person or virtual."
+        - "They are currently experiencing high demand for services. Expect an approximate 3-week wait before receiving services."
+      links:
+        - name: "Intake form"
+          url: "https://projecthelping.notion.site/1f1a5b84107e8049b3badb96de109638"
+        - name: "Website"
+          url: "https://sparkchange.org/mentalwellness/"
 
 - title: "National Lifelines / Helplines"
-  blurb: "Double-check these numbers before launch."
-  links:
-    - name: "988 Suicide & Crisis Lifeline"
-      url: "https://988lifeline.org"
-      note: "Call or text 988"
-    - name: "The Trevor Project"
-      url: "https://www.thetrevorproject.org"
-      note: "LGBTQ+ youth support"
+  blurb: "If you're in danger right now, call 911."
+  items:
+    - name: "988 Helpline"
+      details:
+        - "Call, chat, or text 988. Help available 24/7, in Spanish and in English."
+      links:
+        - name: "Website"
+          url: "https://988lifeline.org/"
     - name: "Trans Lifeline"
-      url: "https://translifeline.org"
-      note: "Peer support for trans people"
+      details:
+        - "(877) 565-8860"
+        - "Peer support phone service run by trans people for trans and questioning peers. Call if you need someone trans to talk to, even if you're not in a crisis or if you're not sure you're trans."
+        - "Available 11AM-7PM MST, Monday-Friday."
+      links:
+        - name: "Website"
+          url: "https://translifeline.org"
+    - name: "Thrive Lifeline"
+      details:
+        - "Non-carceral support by and for multiply marginalized communities."
+        - "Wednesday night to Thursday morning, 10:30pm-4:30am Pacific Time."
+      links:
+        - name: "Website"
+          url: "https://thrivelifeline.org"
 
 - title: "Therapy Resources"
-  blurb: ""
-  links:
-    - name: "Placeholder resource"
-      url: ""
-      note: "Add details"
+  blurb: "Queer and trans affirming therapy in Denver."
+  items:
+    - name: "Queer Asterisk"
+      details:
+        - "Denver-based therapy and mental health organization by and for queer people."
+      links:
+        - name: "Website"
+          url: "https://www.queerasterisk.com/"
+        - name: "@queerasterisk"
+          url: "https://www.instagram.com/queerasterisk"
+    - name: "Chroma Wellness Center"
+      details:
+        - "Denver-based long-term LGBTQIA+ mental health and recovery center offering expert care and a true sense of belonging."
+      links:
+        - name: "Website"
+          url: "https://www.chromawellnesscenter.com/"
+        - name: "@chromawellnesscenter"
+          url: "https://www.instagram.com/chromawellnesscenter"
+    - name: "iAmClinic"
+      details:
+        - "Denver-based LGBTQ therapy."
+        - "Call or text (720) 551-8382."
+      links:
+        - name: "Website"
+          url: "https://www.iamclinic.org/home-2026/"
+        - name: "@lgbtq_therapy"
+          url: "https://www.instagram.com/lgbtq_therapy/"
+    - name: "Liberated Relating"
+      details:
+        - "Therapy centering Trans/Queer/Non-Monogamous/Kinky folks."
+        - "Takes all major insurance and offers sliding scale."
+      links:
+        - name: "Website"
+          url: "http://www.liberated-relating.ink"
+    - name: "Rooted Acorn Counseling"
+      details:
+        - "Queer-founded and queer-led therapy practice, offering queer and trans affirming individual and relationship therapy."
+        - "Offers sliding scale/reduced rate options."
+      links:
+        - name: "Website"
+          url: "https://www.rootedacorncounseling.com/"
+        - name: "@rootedacorncounseling"
+          url: "https://www.instagram.com/rootedacorncounseling"
+    - name: "Cairn Counseling"
+      details:
+        - "Queer-founded and queer-led therapy practice offering queer and trans affirming individual and couples therapy."
+        - "Accepts Medicaid and many private insurances."
+        - "Virtual and in person available."
+        - "Offers sliding scale/reduced rate options."
+      links:
+        - name: "Website"
+          url: "https://www.cairncounselingdenver.com/"
 
 - title: "Community Bulletin Board"
   blurb: "Events, pickup games, and announcements from the community."
-  links:
+  items:
     - name: "Placeholder post"
-      url: ""
-      note: "Add details"
+      details:
+        - "Add details"
 
 - title: "Competitive Leagues"
   blurb: "Ready for more?"
-  links:
+  items:
     - name: "Altitude FC"
-      url: ""
-      note: "Add link"
+      details:
+        - "Denver club offering more competitive play."
+      links:
+        - name: "Website"
+          url: "https://altitudefc.club/"
 
 - title: "Soccer 101"
   blurb: "New to soccer? Start here."
-  links:
-    - name: "Placeholder guide"
-      url: ""
-      note: "Add details"
+  items:
+    - name: "How we play: 7v7"
+      details:
+        - "We usually play 7v7: 6 players on the field plus 1 goalie per team."
+        - "Team sizes can vary depending on field availability and player attendance."
+        - "We don't play offsides."
+    - name: "Warm-up routine"
+      details:
+        - "Warm up before every game. Johns Hopkins has a simple routine to follow."
+      links:
+        - name: "Soccer warm-ups (Johns Hopkins)"
+          url: "https://www.hopkinsmedicine.org/health/expert-qa/soccer-warmups-to-prepare-for-your-game"

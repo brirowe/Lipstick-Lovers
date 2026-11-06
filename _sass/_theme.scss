@@ -328,6 +328,43 @@ img { max-width: 100%; display: block; }
 .links li:first-child { border-top: 0; }
 .links small { display: block; color: $muted; }
 
+// Resources page: dropdown items inside each card
+.resource-grid { align-items: start; }
+.resource { border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.resource:first-of-type { border-top: 0; }
+.resource summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.resource summary::-webkit-details-marker { display: none; }
+.resource summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: $muted;
+  transition: transform 0.2s;
+}
+.resource[open] summary::after { transform: rotate(45deg); }
+.resource-body { padding: 0 0 1rem; }
+.resource-details { margin: 0 0 0.75rem; padding-left: 1.1rem; }
+.resource-details li { margin-bottom: 0.3rem; }
+.resource-links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.resource-links a {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid rgba($light-blue, 0.5);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.resource-links a:hover { border-color: currentColor; }
+
 // Schedule
 .dates { margin: 0; display: grid; gap: 0.5rem; }
 .dates div { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
