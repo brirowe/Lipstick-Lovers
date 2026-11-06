@@ -4,7 +4,7 @@
 # details and links are both optional.
 
 - title: "Local Mental Health Resources"
-  blurb: "Denver-area support and free programs."
+  blurb: "Denver-area support."
   items:
     - name: "Yarrow Collective"
       details:
@@ -14,6 +14,22 @@
           url: "https://www.yarrowcollective.org/"
         - name: "@yarrowcollectivecolorado"
           url: "https://www.instagram.com/yarrowcollectivecolorado"
+    - name: "Queer Asterisk"
+      details:
+        - "Denver-based therapy and mental health organization by and for queer people."
+      links:
+        - name: "Website"
+          url: "https://www.queerasterisk.com/"
+        - name: "@queerasterisk"
+          url: "https://www.instagram.com/queerasterisk"
+    - name: "Chroma Wellness Center"
+      details:
+        - "Denver-based long-term LGBTQIA+ mental health and recovery center offering expert care and a true sense of belonging."
+      links:
+        - name: "Website"
+          url: "https://www.chromawellnesscenter.com/"
+        - name: "@chromawellnesscenter"
+          url: "https://www.instagram.com/chromawellnesscenter"
     - name: "The Center on Colfax"
       details:
         - "Offers 12 free sessions, in person or virtual."
@@ -25,15 +41,6 @@
           url: "https://lgbtqcolorado.org"
         - name: "@centeroncolfax"
           url: "https://www.instagram.com/CenterOnColfax/"
-    - name: "Spark Change"
-      details:
-        - "Offers 10 free sessions, in person or virtual."
-        - "They are currently experiencing high demand for services. Expect an approximate 3-week wait before receiving services."
-      links:
-        - name: "Intake form"
-          url: "https://projecthelping.notion.site/1f1a5b84107e8049b3badb96de109638"
-        - name: "Website"
-          url: "https://sparkchange.org/mentalwellness/"
 
 - title: "National Lifelines / Helplines"
   blurb: "If you're in danger right now, call 911."
@@ -61,24 +68,8 @@
           url: "https://thrivelifeline.org"
 
 - title: "Therapy Resources"
-  blurb: "Queer and trans affirming therapy in Denver."
+  blurb: "Queer and trans affirming therapy."
   items:
-    - name: "Queer Asterisk"
-      details:
-        - "Denver-based therapy and mental health organization by and for queer people."
-      links:
-        - name: "Website"
-          url: "https://www.queerasterisk.com/"
-        - name: "@queerasterisk"
-          url: "https://www.instagram.com/queerasterisk"
-    - name: "Chroma Wellness Center"
-      details:
-        - "Denver-based long-term LGBTQIA+ mental health and recovery center offering expert care and a true sense of belonging."
-      links:
-        - name: "Website"
-          url: "https://www.chromawellnesscenter.com/"
-        - name: "@chromawellnesscenter"
-          url: "https://www.instagram.com/chromawellnesscenter"
     - name: "iAmClinic"
       details:
         - "Denver-based LGBTQ therapy."
@@ -88,6 +79,15 @@
           url: "https://www.iamclinic.org/home-2026/"
         - name: "@lgbtq_therapy"
           url: "https://www.instagram.com/lgbtq_therapy/"
+    - name: "Spark Change"
+      details:
+        - "Offers 10 free sessions, in person or virtual."
+        - "They are currently experiencing high demand for services. Expect an approximate 3-week wait before receiving services."
+      links:
+        - name: "Intake form"
+          url: "https://projecthelping.notion.site/1f1a5b84107e8049b3badb96de109638"
+        - name: "Website"
+          url: "https://sparkchange.org/mentalwellness/"
     - name: "Liberated Relating"
       details:
         - "Therapy centering Trans/Queer/Non-Monogamous/Kinky folks."
