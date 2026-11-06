@@ -222,7 +222,8 @@ img { max-width: 100%; display: block; }
   font-size: clamp(2rem, 7vw, 3.6rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1.25;
+  padding-bottom: 0.15em;
   background: linear-gradient(90deg, $red, $orange, $yellow, $green, $blue, $purple);
   -webkit-background-clip: text;
   background-clip: text;

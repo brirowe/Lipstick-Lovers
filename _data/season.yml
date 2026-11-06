@@ -1,14 +1,14 @@
 # Schedule page info. Update each season.
+# Leave anything as "" to hide it on the page.
 
 current:
-  name: "Season 11"
-  dates: "Start date - End date"
-  details: "Day of week, time, and field location go here."
+  dates: "Ends November 30"
+  details: ""   # e.g. day of week, time, and field location
 
 upcoming:
-  name: "Season 12"
-  start: "Season start date"
-  registration_opens: "Registration open date"
-  registration_closes: "Registration close date"
+  status: "To be decided"
+  start: ""
+  registration_opens: ""
+  registration_closes: ""
 
 subs_text: "We love subs! Want to fill in for a game? Reach out and we'll add you to the sub list."
