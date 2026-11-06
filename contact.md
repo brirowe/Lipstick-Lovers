@@ -15,7 +15,7 @@ art_hero: ""
   </label>
 
   <label>Pronouns
-    <input type="text" name="pronouns" placeholder="e.g. she/they">
+    <input type="text" name="pronouns">
   </label>
 
   <label>Email
@@ -41,6 +41,5 @@ art_hero: ""
   {% endif %}
 </form>
 
-<p class="center">Or email us at <a href="mailto:{{ site.league_email }}">{{ site.league_email }}</a></p>
 
 {% include art.html src=page.art_hero alt="Contact art" class="art-wide" hint="art_hero in contact.md" %}

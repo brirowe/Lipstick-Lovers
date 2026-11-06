@@ -19,7 +19,7 @@ Denver Lipstick Lovers is a queer, recreational soccer league that centers trans
 
 <div class="grid">
   {% for a in site.data.agreements %}
-  <article class="card c-{{ forloop.index0 | modulo: 6 }}">
+    <article class="card agreement c-{{ forloop.index0 | modulo: 6 }}">
     <span class="card-num">{{ forloop.index }}</span>
     {% if a.title %}<h3>{{ a.title }}</h3>{% endif %}
     <p>{{ a.text }}</p>
