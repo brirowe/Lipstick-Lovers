@@ -1,0 +1,16 @@
+{% comment %}
+  Digital art slot.
+  Usage in a page:  include art.html src=page.art_hero alt="Description"
+  If src is blank, a placeholder box shows instead.
+{% endcomment %}
+{% if include.src and include.src != "" %}
+  <figure class="art {{ include.class }}">
+    <img src="{{ include.src | relative_url }}" alt="{{ include.alt }}" loading="lazy">
+  </figure>
+{% else %}
+  <figure class="art art-placeholder {{ include.class }}">
+    <span class="art-icon">✦</span>
+    <span>Art goes here</span>
+    <small>{{ include.hint | default: "Set the image path in this page's front matter" }}</small>
+  </figure>
+{% endif %}

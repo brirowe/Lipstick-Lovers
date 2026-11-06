@@ -1,0 +1,47 @@
+# ==========================================================
+# Lipstick Lovers - Site Settings
+# Edit the values below. Restart `jekyll serve` after changing this file
+# (GitHub Pages picks up changes automatically on push).
+# ==========================================================
+
+title: "Lipstick Lovers"
+tagline: "Denver Queer Rec Soccer League"
+description: "Denver's queer recreational soccer league. All skill levels welcome."
+
+# GitHub Pages project site settings
+url: "https://brirowe.github.io"
+baseurl: "/Lipstick-Lovers"   # set to "" if you later use a custom domain
+
+# ----- Logo -----
+# Drop your logo in assets/img/ and put the path here.
+# Leave blank ("") to show the placeholder circle.
+logo: ""   # e.g. "/assets/img/logo.png"
+
+# ----- Registration -----
+# Flip `open` to true to show the Registration button on the Schedule page.
+registration:
+  open: false
+  button_text: "Register Now"
+  url: ""   # link to your registration form (Google Form, Tally, etc.)
+
+# ----- Contact -----
+league_email: "lipsticklovers@example.com"   # shared league inbox
+# Form backend for the Contact page (Formspree, FormSubmit, etc.)
+# e.g. "https://formspree.io/f/abcdwxyz"
+contact_form_action: ""
+
+social:
+  instagram: ""   # full URL
+  # add more here if you want, e.g. tiktok: "https://..."
+
+# ----- Build settings (don't need to touch these) -----
+markdown: kramdown
+sass:
+  style: compressed
+plugins:
+  - jekyll-seo-tag
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

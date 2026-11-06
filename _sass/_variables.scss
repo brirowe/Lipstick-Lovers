@@ -1,0 +1,43 @@
+// ==========================================================
+// Colors + fonts. Change these to restyle the whole site.
+// Pride colors are brightened a bit so they pop on black.
+// ==========================================================
+
+$red:        #ff3b3b;
+$orange:     #ff8c1a;
+$yellow:     #ffe53b;
+$green:      #2ed15b;
+$blue:       #4c7dff;
+$purple:     #c04be0;
+$pink:       #f5a9b8;
+$light-blue: #5bcefa;
+$brown:      #a0673a;
+
+$bg:         #0a0a0f;
+$text:       #f4f1ff;
+$muted:      #a9a4bd;
+$line:       rgba(255, 255, 255, 0.3);   // soccer field lines
+
+$font: "Open Sans", system-ui, sans-serif;
+
+$max-width: 980px;
+$mobile: 760px;   // nav collapses below this width
+$small: 560px;    // grids go to 1 column below this width
+
+// Order the cards cycle through
+$card-colors: (
+  "0": $red,
+  "1": $orange,
+  "2": $yellow,
+  "3": $green,
+  "4": $blue,
+  "5": $purple,
+  "red": $red,
+  "orange": $orange,
+  "yellow": $yellow,
+  "green": $green,
+  "blue": $blue,
+  "purple": $purple,
+  "pink": $pink,
+  "light-blue": $light-blue
+);

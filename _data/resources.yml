@@ -1,0 +1,51 @@
+# Resources page cards.
+# Each card has a title, an optional blurb, and a list of links.
+# For a link with no URL (like a phone number), leave url blank.
+
+- title: "Local Mental Health Resources"
+  blurb: "Denver-area support."
+  links:
+    - name: "Placeholder resource"
+      url: ""
+      note: "Add details"
+
+- title: "National Lifelines / Helplines"
+  blurb: "Double-check these numbers before launch."
+  links:
+    - name: "988 Suicide & Crisis Lifeline"
+      url: "https://988lifeline.org"
+      note: "Call or text 988"
+    - name: "The Trevor Project"
+      url: "https://www.thetrevorproject.org"
+      note: "LGBTQ+ youth support"
+    - name: "Trans Lifeline"
+      url: "https://translifeline.org"
+      note: "Peer support for trans people"
+
+- title: "Therapy Resources"
+  blurb: ""
+  links:
+    - name: "Placeholder resource"
+      url: ""
+      note: "Add details"
+
+- title: "Community Bulletin Board"
+  blurb: "Events, pickup games, and announcements from the community."
+  links:
+    - name: "Placeholder post"
+      url: ""
+      note: "Add details"
+
+- title: "Competitive Leagues"
+  blurb: "Ready for more?"
+  links:
+    - name: "Altitude FC"
+      url: ""
+      note: "Add link"
+
+- title: "Soccer 101"
+  blurb: "New to soccer? Start here."
+  links:
+    - name: "Placeholder guide"
+      url: ""
+      note: "Add details"
