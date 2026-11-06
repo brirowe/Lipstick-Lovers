@@ -200,6 +200,18 @@ img { max-width: 100%; display: block; }
 .penalty circle { fill: $line; }
 .penalty-bottom { transform: rotate(180deg); margin-top: 3rem; }
 
+// Corner art beside the top penalty box
+.pitch-top { position: relative; }
+.corner-art {
+  position: absolute;
+  top: 8%;
+  width: 15%;
+  max-height: 84%;
+  object-fit: contain;
+}
+.corner-left { left: 3%; }
+.corner-right { right: 3%; }
+
 .pitch-content { padding: 0.75rem clamp(1.25rem, 6vw, 4rem) 1rem; }
 .pitch-content > :first-child { margin-top: 0; }
 // ==========================================================

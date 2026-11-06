@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, noai, noimageai">
   <title>{% if page.title and page.title != "Home" %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +18,17 @@
 
   <main class="pitch-wrap">
     <div class="pitch">
-      {% include goal-box.html position="top" %}
+      {% assign art_left = page.art_left | default: site.art_left %}
+      {% assign art_right = page.art_right | default: site.art_right %}
+      <div class="pitch-top">
+        {% include goal-box.html position="top" %}
+        {% if art_left and art_left != "" %}
+          <img class="corner-art corner-left" src="{{ art_left | relative_url }}" alt="" aria-hidden="true">
+        {% endif %}
+        {% if art_right and art_right != "" %}
+          <img class="corner-art corner-right" src="{{ art_right | relative_url }}" alt="" aria-hidden="true">
+        {% endif %}
+      </div>
 
       <div class="pitch-content">
         {{ content }}

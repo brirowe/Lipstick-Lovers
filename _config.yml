@@ -17,6 +17,12 @@ baseurl: "/Lipstick-Lovers"   # set to "" if you later use a custom domain
 # Leave blank ("") to show the placeholder circle.
 logo: "/assets/img/DLL Logo.jpg"
 
+# ----- Corner art (top of the field, both sides) -----
+# Sets it for every page. Leave blank ("") for none.
+# To change it on one page, add art_left / art_right to that page's front matter.
+art_left: ""    # e.g. "/assets/img/art/left.png"
+art_right: ""
+
 # ----- Registration -----
 # Flip `open` to true to show the Registration button on the Schedule page.
 registration:
