@@ -1,6 +1,14 @@
 // ==========================================================
 // Base
 // ==========================================================
+// Rainbow gradient text (used for headings instead of a single color)
+@mixin rainbow-text {
+  background: linear-gradient(90deg, $red, $orange, $yellow, $green, $blue, $purple);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -192,8 +200,8 @@ img { max-width: 100%; display: block; }
 .penalty circle { fill: $line; }
 .penalty-bottom { transform: rotate(180deg); margin-top: 3rem; }
 
-.pitch-content { padding: 2.5rem clamp(1.25rem, 6vw, 4rem) 1rem; }
-
+.pitch-content { padding: 0.75rem clamp(1.25rem, 6vw, 4rem) 1rem; }
+.pitch-content > :first-child { margin-top: 0; }
 // ==========================================================
 // Content pieces
 // ==========================================================
@@ -211,10 +219,11 @@ img { max-width: 100%; display: block; }
 }
 
 .section-title {
+  @include rainbow-text;
+  width: fit-content;
   text-align: center;
-  color: $orange;
   font-size: clamp(1.3rem, 4vw, 2rem);
-  margin: 3.5rem 0 1.75rem;
+  margin: 3.5rem auto 1.75rem;
 }
 
 .center { text-align: center; }
@@ -300,8 +309,8 @@ img { max-width: 100%; display: block; }
 @media (max-width: $small) {
   .dates div { display: grid; gap: 0; }
 }
-.subs { text-align: center; font-size: 1.15rem; color: $orange; font-weight: 600; }
-.register-wrap { text-align: center; margin-bottom: 1.5rem; }
+.subs { text-align: center; font-size: 1.15rem; font-weight: 600; }
+.subs-text { @include rainbow-text; }
 
 // Buttons
 .btn {

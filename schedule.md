@@ -32,4 +32,4 @@ art_hero: ""
 
 {% include art.html src=page.art_hero alt="Schedule art" class="art-wide" hint="art_hero in schedule.md" %}
 
-<p class="subs">{{ s.subs_text }} <a class="btn btn-small" href="{{ '/contact/' | relative_url }}">Contact us</a></p>
+<p class="subs"><span class="subs-text">{{ s.subs_text }}</span> <a class="btn btn-small" href="{{ '/contact/' | relative_url }}">Contact us</a></p>

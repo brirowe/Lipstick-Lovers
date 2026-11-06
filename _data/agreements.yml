@@ -1,15 +1,12 @@
 # Community Agreements (About page)
 # Add, remove, or reorder. Each card cycles to the next pride color automatically.
 
-- title: "Agreement 1"
-  text: "Placeholder text. Replace with your first community agreement."
-- title: "Agreement 2"
-  text: "Placeholder text. Replace with your second community agreement."
-- title: "Agreement 3"
-  text: "Placeholder text. Replace with your third community agreement."
-- title: "Agreement 4"
-  text: "Placeholder text. Replace with your fourth community agreement."
-- title: "Agreement 5"
-  text: "Placeholder text. Replace with your fifth community agreement."
-- title: "Agreement 6"
-  text: "Placeholder text. Replace with your sixth community agreement."
+# Community Agreements (About page)
+# Add, remove, or reorder. Each card cycles to the next pride color automatically.
+
+- text: "We are here to play soccer joyfully and safely."
+- text: "We are here to build community with one another."
+- text: "We don't slide tackle, use our arms, or body check each other. If someone seems hurt, we pause play and check in."
+- text: "If we're experiencing a problem, we talk directly to the people involved."
+- text: "We are aware of our bodies, how they affect others, and what they need."
+- text: "We are here to have fun, play soccer, look out for each other, and be queer."

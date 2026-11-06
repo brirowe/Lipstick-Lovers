@@ -5,13 +5,11 @@ permalink: /about/
 art_hero: ""
 ---
 
-<section class="card card-wide c-orange" markdown="1">
+<section class="card card-wide" markdown="1">
 
-## Who We Are
+## About Our League
 
-Placeholder description. Write a few sentences about the league here: who it's for,
-the vibe, how it started. This is plain markdown, so **bold**, *italics*, and
-[links](https://example.com) all work.
+Denver Lipstick Lovers is a queer, recreational soccer league that centers trans, nonbinary, and queer women players that is run by and for the queer community. All skill levels are welcome, including those new to the sport. This is a non-competitive league, and other clubs like Altitude FC offer more competitive play. We exist to have fun and build queer community by playing soccer.
 
 </section>
 
@@ -23,7 +21,7 @@ the vibe, how it started. This is plain markdown, so **bold**, *italics*, and
   {% for a in site.data.agreements %}
   <article class="card c-{{ forloop.index0 | modulo: 6 }}">
     <span class="card-num">{{ forloop.index }}</span>
-    <h3>{{ a.title }}</h3>
+    {% if a.title %}<h3>{{ a.title }}</h3>{% endif %}
     <p>{{ a.text }}</p>
   </article>
   {% endfor %}

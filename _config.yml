@@ -15,7 +15,7 @@ baseurl: "/Lipstick-Lovers"   # set to "" if you later use a custom domain
 # ----- Logo -----
 # Drop your logo in assets/img/ and put the path here.
 # Leave blank ("") to show the placeholder circle.
-logo: ""   # e.g. "/assets/img/logo.png"
+logo: "/assets/img/DLL Logo.jpg"
 
 # ----- Registration -----
 # Flip `open` to true to show the Registration button on the Schedule page.
