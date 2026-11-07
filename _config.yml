@@ -28,7 +28,8 @@ art_right: ""
 registration:
   open: false
   button_text: "Register Now"
-  url: ""   # link to your registration form (Google Form, Tally, etc.)
+  url: "https://brirowe.github.io/Lipstick-Lovers/register/"
+  script_url: ""   # Google Apps Script web app URL (ends in /exec)
 
 # ----- Contact -----
 league_email: "lipsticklovers@example.com"   # shared league inbox

@@ -1,0 +1,214 @@
+---
+layout: default
+title: Register
+permalink: /register/
+art_hero: ""
+---
+
+{% assign r = site.data.registration %}
+
+<h2 class="section-title">Register</h2>
+
+{% comment %} Always shows in Codespaces (development) so you can preview it. Live site follows registration.open {% endcomment %}
+{% if site.registration.open or jekyll.environment == "development" %}
+
+<form id="reg-form" class="card card-wide reg-form" data-endpoint="{{ site.registration.script_url }}">
+
+  <!-- ===== Before You Register ===== -->
+  <fieldset>
+    <legend>Before You Register</legend>
+
+    <div class="reg-q">
+      <span>Community Agreements</span>
+      <ol class="reg-agreements">
+        {% for a in site.data.agreements %}
+        <li>{{ a.text }}</li>
+        {% endfor %}
+      </ol>
+      <label class="chip"><input type="checkbox" name="agree_agreements" value="Yes" required><span>I agree to the Lipstick Lovers community agreements <span class="req">*</span></span></label>
+    </div>
+
+    <div class="reg-q">
+      <span>Lipstick Lovers is a league for queer players only.</span>
+      <label class="chip"><input type="checkbox" name="confirm_queer" value="Yes" required><span>I confirm that I am queer <span class="req">*</span></span></label>
+    </div>
+  </fieldset>
+
+  <!-- ===== About You ===== -->
+  <fieldset>
+    <legend>About You</legend>
+
+    <div class="reg-row">
+      <label><span>First Name <span class="req">*</span></span>
+        <input type="text" name="first_name" autocomplete="given-name" required>
+      </label>
+      <label><span>Last Name <span class="req">*</span></span>
+        <input type="text" name="last_name" autocomplete="family-name" required>
+      </label>
+    </div>
+
+    <label><span>Pronouns</span>
+      <input type="text" name="pronouns">
+    </label>
+
+    <div class="reg-row">
+      <label><span>Phone Number <span class="req">*</span></span>
+        <input type="tel" name="phone" autocomplete="tel" required>
+      </label>
+      <label><span>Email <span class="req">*</span></span>
+        <input type="email" name="email" autocomplete="email" required>
+      </label>
+    </div>
+
+    <label><span>Discord Username <span class="req">*</span></span>
+      <input type="text" name="discord" autocomplete="off" required>
+    </label>
+
+    <label><span>Birthday <span class="req">*</span></span>
+      <input type="text" name="birthday" id="birthday" inputmode="numeric" autocomplete="bday" placeholder="MM/DD/YYYY" maxlength="10" pattern="(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(19|20)[0-9]{2}" title="MM/DD/YYYY" required>
+    </label>
+  </fieldset>
+
+  <!-- ===== Identity ===== -->
+  <fieldset>
+    <legend>Identity</legend>
+
+    <label><span>Please self-describe your gender identity</span>
+      <input type="text" name="gender_identity">
+    </label>
+
+    <label><span>Please self-describe your racial/ethnic identity</span>
+      <input type="text" name="racial_ethnic_identity">
+    </label>
+  </fieldset>
+
+  <!-- ===== Playing ===== -->
+  <fieldset>
+    <legend>Playing</legend>
+
+    <div class="reg-q">
+      <span>Is this your first time playing with Lipstick Lovers? <span class="req">*</span></span>
+      <div class="choice-row">
+        <label class="chip"><input type="radio" name="first_time" value="Yes" required><span>Yes</span></label>
+        <label class="chip"><input type="radio" name="first_time" value="No"><span>No</span></label>
+      </div>
+    </div>
+
+    <div class="reg-q">
+      <span>What team do you prefer to play on? <span class="req">*</span></span>
+      <p class="reg-hint">If you would like to be on the same team as another player(s), please choose the same team. Open spots on each team are displayed below.</p>
+      <div id="team-list" class="team-list">
+        <p class="muted">Loading teams...</p>
+      </div>
+    </div>
+
+    <div class="reg-q">
+      <span>Which of the following levels best describes you? <span class="req">*</span></span>
+      <div class="choice-col">
+        {% for level in r.levels %}
+        <label class="chip"><input type="radio" name="level" value="{{ level.name }}" required><span><strong>{{ level.name }}</strong> <small>{{ level.description }}</small></span></label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="reg-q">
+      <span>Preferred Position <span class="req">*</span></span>
+      <span class="reg-hint">Pick as many as you like.</span>
+      <div class="choice-row">
+        {% for p in r.positions %}
+        <label class="chip"><input type="checkbox" name="position" value="{{ p }}"><span>{{ p }}</span></label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="reg-q">
+      <span>Which games can you attend? <span class="req">*</span></span>
+      <div class="choice-row">
+        {% for g in r.games %}
+        <label class="chip"><input type="checkbox" name="games" value="{{ g }}"><span>{{ g }}</span></label>
+        {% endfor %}
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- ===== Subbing ===== -->
+  <fieldset>
+    <legend>Subbing</legend>
+
+    <div class="reg-q">
+      <span>What is your interest in subbing for other teams? <span class="req">*</span></span>
+      <p class="reg-hint">{{ r.sub_note }}</p>
+      <div class="choice-col">
+        {% for o in r.sub_options %}
+        <label class="chip"><input type="radio" name="sub_interest" value="{{ o }}" required><span>{{ o }}</span></label>
+        {% endfor %}
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- ===== Payment ===== -->
+  <fieldset>
+    <legend>Payment</legend>
+
+    <div class="reg-q">
+      <span>How much would you like to pay? <span class="req">*</span></span>
+      <span class="reg-hint">Sliding scale based on the ${{ r.season_cost }} season cost. Pay what works for you.</span>
+      <div class="choice-row">
+        {% for pct in r.payment_tiers %}
+        {% assign amt = r.season_cost | times: pct | divided_by: 100.0 | round %}
+        <label class="chip"><input type="radio" name="payment_tier" value="{{ pct }}%" data-amount="{{ amt }}" required><span>${{ amt }} <small>({{ pct }}%)</small></span></label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div id="pay-method" class="reg-q" hidden>
+      <span>How will you pay? <span class="req">*</span></span>
+      <div class="choice-row">
+        <label class="chip"><input type="radio" name="payment_method" value="Cash"><span>Cash</span></label>
+        <label class="chip"><input type="radio" name="payment_method" value="Venmo"><span>Venmo</span></label>
+      </div>
+      <p id="pay-cash" class="reg-hint" hidden>{{ r.cash_note }}</p>
+    </div>
+
+    <div id="pay-venmo" class="reg-q" hidden>
+      <label><span>Your Venmo Username <span class="req">*</span></span>
+        <input type="text" name="venmo_username" placeholder="@yourname" autocomplete="off">
+      </label>
+      <p class="reg-hint">Send <strong id="pay-venmo-amount"></strong> on Venmo to <strong>{{ r.venmo_handle }}</strong>.</p>
+    </div>
+  </fieldset>
+
+  <!-- Spam trap: real people never see or fill this -->
+  <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <input type="hidden" name="payment_amount" id="payment_amount">
+
+  <p id="reg-error" class="reg-error" role="alert" hidden></p>
+
+  <button class="btn btn-register" type="submit">Submit Registration</button>
+</form>
+
+<section id="reg-done" class="card card-wide reg-done" hidden>
+  <h2>You're registered!</h2>
+  <p class="big">Team: <span id="reg-done-team"></span></p>
+  <p id="reg-done-pay"></p>
+  <p>Questions? <a href="{{ '/contact/' | relative_url }}">Contact us</a>.</p>
+</section>
+
+<script>
+  window.REG = {
+    venmoHandle: {{ r.venmo_handle | jsonify }},
+    cashNote: {{ r.cash_note | jsonify }}
+  };
+</script>
+<script src="{{ '/assets/js/register.js' | relative_url }}" defer></script>
+
+{% else %}
+
+<section class="card card-wide c-blue">
+  <h3>Registration is closed</h3>
+  <p>Check the <a href="{{ '/schedule/' | relative_url }}">Schedule</a> page for when the next season opens.</p>
+</section>
+
+{% endif %}
+
+{% include art.html src=page.art_hero alt="Registration art" class="art-wide" hint="art_hero in register.html" %}

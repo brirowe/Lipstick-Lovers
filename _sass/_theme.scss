@@ -483,7 +483,145 @@ img { max-width: 100%; display: block; }
 .to-top.show { opacity: 1; pointer-events: auto; transform: none; }
 
 // ==========================================================
-// Card color helper: each .c-* class sets --c (kept last so it wins over defaults)
-@each $name, $color in $card-colors {
-  .c-#{$name} { --c: #{$color}; }
+// Registration form
+// ==========================================================
+.reg-form { display: grid; gap: 2.25rem; max-width: 720px; }
+.reg-form.card:hover { transform: none; background: rgba(255, 255, 255, 0.07); }
+
+.reg-form fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: grid;
+  gap: 1.1rem;
 }
+.reg-form legend {
+  @include rainbow-text;
+  font-size: 1.35rem;
+  font-weight: 800;
+  padding: 0;
+  margin-bottom: 0.9rem;
+}
+
+.reg-form label,
+.reg-q { display: grid; gap: 0.4rem; font-weight: 400; }
+.req { color: $pink; }
+
+.reg-form input[type="text"],
+.reg-form input[type="email"],
+.reg-form input[type="tel"],
+.reg-form select,
+.reg-form textarea {
+  font: inherit;
+  color: $text;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 0.65rem 0.8rem;
+  width: 100%;
+}
+.reg-form select option { background: #1a1824; }
+.reg-form input:focus,
+.reg-form select:focus,
+.reg-form textarea:focus { outline: none; border-color: rgba(255, 255, 255, 0.7); }
+
+.reg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+@media (max-width: $small) {
+  .reg-row { grid-template-columns: 1fr; }
+}
+
+// Pill-style radio + checkbox choices
+.choice-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.choice-col { display: grid; gap: 0.5rem; }
+.reg-form .chip { display: inline-flex; position: relative; cursor: pointer; }
+.chip input { position: absolute; opacity: 0; pointer-events: none; }
+.chip > span {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.choice-col .chip > span { border-radius: 12px; width: 100%; }
+.chip:hover > span { border-color: rgba(255, 255, 255, 0.5); }
+.chip input:checked + span {
+  border-color: $light-blue;
+  background: rgba($light-blue, 0.22);
+  font-weight: 600;
+}
+.chip input:focus-visible + span { outline: 2px solid $text; outline-offset: 2px; }
+
+// Team cards
+.team-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+@media (max-width: $small) {
+  .team-list { grid-template-columns: 1fr; }
+}
+.team-card {
+  --c: #{$light-blue};
+  position: relative;
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem 1.15rem;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+.team-card:hover { transform: translateY(-2px); border-color: var(--c); }
+.team-card input { position: absolute; opacity: 0; pointer-events: none; }
+.team-card:has(input:checked) {
+  border-color: var(--c);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 1px var(--c), 0 0 22px -6px var(--c);
+}
+.team-card:has(input:focus-visible) { outline: 2px solid $text; outline-offset: 3px; }
+.team-name { font-weight: 800; font-size: 1.15rem; color: var(--c); }
+.team-desc { color: $muted; font-size: 0.9rem; }
+.team-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+.team-bar span {
+  display: block;
+  height: 100%;
+  background: var(--c);
+  transition: width 0.5s;
+}
+.team-left { font-size: 0.9rem; font-weight: 600; }
+.team-card.is-full { opacity: 0.5; cursor: not-allowed; }
+.team-card.is-full .team-left { color: $red; }
+.team-card.is-full:hover { transform: none; border-color: rgba(255, 255, 255, 0.15); }
+.team-card.no-pref { --c: #{$text}; }
+// Very dark team colors (e.g. black): light name + outline so they still show
+.team-card.is-dark .team-name { color: $text; }
+.team-card.is-black .team-bar span { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6); }
+.team-card.is-black:hover,
+.team-card.is-black:has(input:checked) { border-color: $text; }
+.team-card.is-black:has(input:checked) { box-shadow: 0 0 0 1px $text, 0 0 22px -6px $text; }
+
+.reg-agreements {
+  margin: 0.25rem 0 0.75rem;
+  padding: 1rem 1rem 1rem 2.4rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid $pink;
+  display: grid;
+  gap: 0.5rem;
+}
+.reg-hint { color: $muted; font-size: 0.92rem; margin: 0; }
+.chip small { color: $muted; font-weight: 400; }
+.choice-col .chip small { display: block; font-size: 0.88rem; }
+
+.reg-error {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background: rgba($red, 0.12);
+  color: $red;
+  font-weight: 600;
+}
+.hp { position: absolute; left:
