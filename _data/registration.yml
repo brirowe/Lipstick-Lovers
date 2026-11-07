@@ -12,13 +12,13 @@ cash_note: "Bring cash to your first game."   # shown when someone picks Cash (P
 # Lowest to highest. "name" is what gets saved to the Sheet.
 levels:
   - name: "Recreational"
-    description: "New to soccer, or here mostly to have fun and learn"
+    description: "New to soccer or very little experience"
   - name: "Beginner"
-    description: "Played a little, like pickup, casual rec, or as a kid"
+    description: "Played a little, (like pickup, casual rec, or as a kid)"
   - name: "Intermediate"
     description: "Played regularly, like high school, club, or several seasons of adult league"
   - name: "Advanced"
-    description: "Played in college"
+    description: "Played in college or in a highly competitive adult league"
 
 # People can pick more than one
 positions:
@@ -28,12 +28,11 @@ positions:
   - "Forward"
   - "Anywhere"
 
-sub_note: "Subbing doesn't mean guaranteed playing time. Please be respectful of the players actually on that team. That said, we'd love to have you participate as much as you want!"
+sub_note: "While we love our subs... subbing doesn't mean guaranteed playing time. Please be respectful of the players who are on a given team roster. That said, we'd love to have you participate as much as you want!"
 sub_options:
   - "Not interested in subbing"
-  - "Down to sub for 1 game"
-  - "Down to sub sometimes"
-  - "Would like to sub every week"
+  - "I'd like to sub occasionally"
+  - "I'd like to sub every week"
 
 # One line per game. These show as checkboxes.
 games:

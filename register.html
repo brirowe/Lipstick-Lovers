@@ -29,8 +29,8 @@ art_hero: ""
     </div>
 
     <div class="reg-q">
-      <span>Lipstick Lovers is a league for queer players only.</span>
-      <label class="chip"><input type="checkbox" name="confirm_queer" value="Yes" required><span>I confirm that I am queer <span class="req">*</span></span></label>
+      <span>Lipstick Lovers is a queer only league, if you do not identify as queer please do not register.</span>
+      <label class="chip"><input type="checkbox" name="confirm_queer" value="Yes" required><span>I confirm I'm queer <span class="req">*</span></span></label>
     </div>
   </fieldset>
 
@@ -82,7 +82,7 @@ art_hero: ""
     </label>
   </fieldset>
 
-  <!-- ===== Playing ===== -->
+  <!-- ===== Team Selection and Soccer Information ===== -->
   <fieldset>
     <legend>Playing</legend>
 
@@ -151,8 +151,8 @@ art_hero: ""
     <legend>Payment</legend>
 
     <div class="reg-q">
-      <span>How much would you like to pay? <span class="req">*</span></span>
-      <span class="reg-hint">Sliding scale based on the ${{ r.season_cost }} season cost. Pay what works for you.</span>
+      <span>How much are you able to pay? <span class="req">*</span></span>
+      <span class="reg-hint">Sliding scale based on the ${{ r.season_cost }} season cost. Pay what works for you, paying extra helps to support players who need financial assistance.</span>
       <div class="choice-row">
         {% for pct in r.payment_tiers %}
         {% assign amt = r.season_cost | times: pct | divided_by: 100.0 | round %}
@@ -162,7 +162,7 @@ art_hero: ""
     </div>
 
     <div id="pay-method" class="reg-q" hidden>
-      <span>How will you pay? <span class="req">*</span></span>
+      <span>How do you want topay? <span class="req">*</span></span>
       <div class="choice-row">
         <label class="chip"><input type="radio" name="payment_method" value="Cash"><span>Cash</span></label>
         <label class="chip"><input type="radio" name="payment_method" value="Venmo"><span>Venmo</span></label>
