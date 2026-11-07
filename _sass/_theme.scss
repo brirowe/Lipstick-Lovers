@@ -624,4 +624,11 @@ img { max-width: 100%; display: block; }
   color: $red;
   font-weight: 600;
 }
-.hp { position: absolute; left:
+.hp {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
