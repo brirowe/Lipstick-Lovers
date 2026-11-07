@@ -1,0 +1,20 @@
+# Text and answer choices for the internal (link-only) forms.
+# Feedback page: /season-feedback-k7q2/   Volunteer page: /volunteer-m4x8/
+
+feedback:
+  season: "Fall 2026"   # update each season, saved with every response
+  intro: "We're all volunteers! Tell us what worked and what didn't. We'll start with what comes up most. Anonymous is totally fine."
+  ratings: ["1", "2", "3", "4", "5"]
+
+volunteer:
+  intro: "Not a captain but want to help? Seasons are about 8 weeks."
+  time_options:
+    - "One-time thing"
+    - "About 1 hour a week"
+    - "2+ hours a week"
+  areas:
+    - "Community events"
+    - "Art and design"
+    - "Fundraising"
+    - "Social media"
+    - "Other"
