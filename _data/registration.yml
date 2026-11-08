@@ -45,3 +45,14 @@ games:
   - "Sun, Jan 10 (evening)"
   - "Sun, Jan 17 (evening)"
   - "Sun, Jan 24 (evening)"
+
+# Sample teams shown while registration is closed (preview mode)
+preview_teams:
+  - { name: "ACAB FC",         color: "#000000" }
+  - { name: "Cleated Rivalry", color: "#c04be0" }
+  - { name: "Hot to Goal!",    color: "#ff8c1a" }
+  - { name: "Kicks & Giggles", color: "#1f3fbf" }
+  - { name: "Oat Milk",        color: "#5bcefa" }
+  - { name: "Pink Pony Club",  color: "#ff1f8f" }
+  - { name: "Scissor Kickers", color: "#2ed15b" }
+  - { name: "Uhaul United",    color: "#ff3b3b" }

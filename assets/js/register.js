@@ -149,13 +149,14 @@
   });
   updatePayment();
 
-  // Not connected to Google yet: show the form but don't try to load or submit
-  if (!endpoint) {
-    teamList.innerHTML = "";
-    teamList.appendChild(el("p", "reg-error", "Not connected to the Google Sheet yet. Add script_url in _config.yml."));
+  // Preview mode (registration closed) or not connected yet: sample teams, no submitting
+  if (form.dataset.preview || !endpoint) {
+    renderTeams((window.REG.previewTeams || []).map(function (t) {
+      return { name: t.name, color: t.color, max: 12, taken: 0, left: 12, description: "" };
+    }));
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      showError("Not connected to the Google Sheet yet, so nothing was submitted.");
+      showError("Preview only. Registration isn't open yet, so nothing was submitted.");
     }, true);
     return;
   }

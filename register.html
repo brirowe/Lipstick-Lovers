@@ -9,10 +9,12 @@ art_hero: ""
 
 <h2 class="section-title">Register</h2>
 
-{% comment %} Always shows in Codespaces (development) so you can preview it. Live site follows registration.open {% endcomment %}
-{% if site.registration.open or jekyll.environment == "development" %}
+{% comment %} When registration.open is false, the form shows in preview mode: sample teams, submit turned off. {% endcomment %}
+{% unless site.registration.open %}
+<p class="reg-preview">Preview only. Registration isn't open yet, so nothing will be submitted.</p>
+{% endunless %}
 
-<form id="reg-form" class="card card-wide reg-form" data-endpoint="{{ site.registration.script_url }}">
+<form id="reg-form" class="card card-wide reg-form" data-endpoint="{{ site.registration.script_url }}"{% unless site.registration.open %} data-preview="true"{% endunless %}>
 
   <!-- ===== Before You Register ===== -->
   <fieldset>
@@ -197,18 +199,11 @@ art_hero: ""
 <script>
   window.REG = {
     venmoHandle: {{ r.venmo_handle | jsonify }},
-    cashNote: {{ r.cash_note | jsonify }}
+    cashNote: {{ r.cash_note | jsonify }},
+    previewTeams: {{ r.preview_teams | jsonify }}
   };
 </script>
 <script src="{{ '/assets/js/register.js' | relative_url }}" defer></script>
 
-{% else %}
-
-<section class="card card-wide c-blue">
-  <h3>Registration is closed</h3>
-  <p>Check the <a href="{{ '/schedule/' | relative_url }}">Schedule</a> page for when the next season opens.</p>
-</section>
-
-{% endif %}
 
 {% include art.html src=page.art_hero alt="Registration art" class="art-wide" hint="art_hero in register.html" %}
