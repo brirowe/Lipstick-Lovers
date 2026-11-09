@@ -16,3 +16,9 @@ art_hero: ""
   <a class="tile c-green" href="{{ '/resources/' | relative_url }}"><span>Resources</span></a>
   <a class="tile c-purple" href="{{ '/contact/' | relative_url }}"><span>Contact</span></a>
 </div>
+
+<section class="card card-wide tribute-teaser">
+  <h2>In Memory of Voss</h2>
+  <p>Placeholder. A short note about Voss and what he meant to the league.</p>
+  <a class="btn btn-small" href="{{ '/voss/' | relative_url }}">Visit his tribute</a>
+</section>

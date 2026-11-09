@@ -9,13 +9,21 @@
 <!-- Soccer ball back-to-top button -->
 <button class="to-top" aria-label="Back to top" title="Back to top">
   <svg viewBox="0 0 64 64" aria-hidden="true">
-    <circle cx="32" cy="32" r="29" fill="#fff" stroke="#111" stroke-width="3"/>
-    <polygon points="32,20 43,28 39,41 25,41 21,28" fill="#111"/>
-    <path d="M32 20 V5 M43 28 L57 23 M39 41 L48 54 M25 41 L16 54 M21 28 L7 23" stroke="#111" stroke-width="3" fill="none"/>
-    <polygon points="24,5 40,5 32,11" fill="#111"/>
-    <polygon points="59,30 56,44 52,33" fill="#111"/>
-    <polygon points="5,30 8,44 12,33" fill="#111"/>
-    <polygon points="22,61 42,61 32,56" fill="#111"/>
+    <defs>
+      <clipPath id="ball-clip"><circle cx="32" cy="32" r="29"/></clipPath>
+      <radialGradient id="ball-shade" cx="40%" cy="35%" r="70%"><stop offset="60%" stop-color="#fff"/><stop offset="100%" stop-color="#cfcfd6"/></radialGradient>
+    </defs>
+    <circle cx="32" cy="32" r="29" fill="url(#ball-shade)"/>
+    <g clip-path="url(#ball-clip)" fill="#111" stroke="#111" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+      <polygon points="32.0,23.5 40.1,29.4 37.0,38.9 27.0,38.9 23.9,29.4"/>
+      <polygon points="44.9,14.2 42.0,5.3 49.6,-0.3 57.2,5.3 54.3,14.2"/>
+      <polygon points="52.9,38.8 60.5,33.3 68.1,38.8 65.2,47.7 55.8,47.7"/>
+      <polygon points="32.0,54.0 39.6,59.5 36.7,68.5 27.3,68.5 24.4,59.5"/>
+      <polygon points="11.1,38.8 8.2,47.7 -1.2,47.7 -4.1,38.8 3.5,33.3"/>
+      <polygon points="19.1,14.2 9.7,14.2 6.8,5.3 14.4,-0.3 22.0,5.3"/>
+      <path fill="none" d="M32.0 23.5 L32.0 15.0 M32.0 15.0 L19.1 14.2 M32.0 15.0 L44.9 14.2 M40.1 29.4 L48.2 26.7 M48.2 26.7 L44.9 14.2 M48.2 26.7 L52.9 38.8 M37.0 38.9 L42.0 45.8 M42.0 45.8 L52.9 38.8 M42.0 45.8 L32.0 54.0 M27.0 38.9 L22.0 45.8 M22.0 45.8 L32.0 54.0 M22.0 45.8 L11.1 38.8 M23.9 29.4 L15.8 26.7 M15.8 26.7 L11.1 38.8 M15.8 26.7 L19.1 14.2"/>
+    </g>
+    <circle cx="32" cy="32" r="29" fill="none" stroke="#111" stroke-width="2.5"/>
   </svg>
   <span>Top</span>
 </button>

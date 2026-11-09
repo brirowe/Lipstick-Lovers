@@ -43,7 +43,7 @@
           url: "https://www.instagram.com/CenterOnColfax/"
 
 - title: "National Lifelines / Helplines"
-  blurb: "If you're in danger right now, call 911."
+  blurb: "These are helplines. If you're experiencing an emergency, call 911."
   items:
     - name: "988 Helpline"
       details:
@@ -122,7 +122,7 @@
         - "Add details"
 
 - title: "Competitive Leagues"
-  blurb: "Ready for more?"
+  blurb: "Other Denver leagues with a more competitive environment."
   items:
     - name: "Altitude FC"
       details:

@@ -25,7 +25,7 @@ photos:
   {% if page.hero_photo != "" %}
     <img src="{{ page.hero_photo | relative_url }}" alt="Voss">
   {% else %}
-    <div class="photo-placeholder">Main photo</div>
+    <div class="photo-placeholder" aria-hidden="true"></div>
   {% endif %}
 </figure>
 
@@ -51,7 +51,7 @@ Placeholder. Things he loved doing and how he shared that joy with the people ar
     {% if p.src != "" %}
       <img src="{{ p.src | relative_url }}" alt="{{ p.caption }}" loading="lazy">
     {% else %}
-      <div class="photo-placeholder">Photo</div>
+      <div class="photo-placeholder" aria-hidden="true"></div>
     {% endif %}
     {% if p.caption != "" %}<figcaption>{{ p.caption }}</figcaption>{% endif %}
   </figure>

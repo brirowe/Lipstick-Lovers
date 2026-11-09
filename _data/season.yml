@@ -3,7 +3,7 @@
 
 current:
   dates: "Ends November 30"
-  details: ""   # e.g. day of week, time, and field location
+  details: "Monday evenings"   # e.g. day of week, time, and field location
 
 upcoming:
   status: "To be decided"
@@ -12,3 +12,4 @@ upcoming:
   registration_closes: ""
 
 subs_text: "We love subs! Want to fill in for a game? Reach out and we'll add you to the sub list."
+subs_note: "Players on each team get first dibs on game time, so sub time isn't guaranteed. We'll always do our best to get you on the field and involved in the league however we can!"

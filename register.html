@@ -148,6 +148,20 @@ art_hero: ""
     </div>
   </fieldset>
 
+  <!-- ===== Media Disclaimer ===== -->
+  <fieldset>
+    <legend>Media Disclaimer</legend>
+
+    <div class="reg-q">
+      <ul class="reg-agreements reg-media">
+        {% for m in r.media_disclaimer %}
+        <li>{{ m }}</li>
+        {% endfor %}
+      </ul>
+      <label class="chip"><input type="checkbox" name="agree_media" value="Yes" required><span>I've read the media disclaimer <span class="req">*</span></span></label>
+    </div>
+  </fieldset>
+
   <!-- ===== Payment ===== -->
   <fieldset>
     <legend>Payment</legend>

@@ -34,3 +34,4 @@ art_hero: ""
 {% include art.html src=page.art_hero alt="Schedule art" class="art-wide" hint="art_hero in schedule.md" %}
 
 <p class="subs"><span class="subs-text">{{ s.subs_text }}</span> <a class="btn btn-small" href="{{ '/contact/' | relative_url }}">Contact us</a></p>
+{% if s.subs_note and s.subs_note != "" %}<p class="subs-note">{{ s.subs_note }}</p>{% endif %}

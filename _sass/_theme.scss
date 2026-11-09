@@ -29,6 +29,11 @@ a:hover { color: $pink; }
 
 h1, h2, h3 { font-weight: 800; line-height: 1.15; margin: 0 0 0.5em; }
 p { margin: 0 0 0.9em; }
+
+// Even line breaks for body text (reads better on phones than justify)
+p, li { text-wrap: pretty; }
+.card p, .card li, .reg-hint { hyphens: auto; -webkit-hyphens: auto; }
+.card a { hyphens: manual; -webkit-hyphens: manual; }
 img { max-width: 100%; display: block; }
 
 
@@ -236,6 +241,8 @@ img { max-width: 100%; display: block; }
   width: fit-content;
   text-align: center;
   font-size: clamp(1.3rem, 4vw, 2rem);
+  line-height: 1.3;          // room for g, y, p so the gradient doesn't clip them
+  padding: 0.05em 0 0.15em;
   margin: 3.5rem auto 1.75rem;
 }
 
@@ -376,6 +383,31 @@ img { max-width: 100%; display: block; }
 }
 .subs { text-align: center; font-size: 1.15rem; font-weight: 600; }
 .subs-text { @include rainbow-text; }
+.subs-note { max-width: 560px; margin: 0.5rem auto 0; text-align: center; color: $muted; font-size: 0.95rem; }
+
+// Voss tribute
+.tribute-teaser { margin-top: 2.5rem; text-align: center; }
+.tribute-dates { margin-top: -1rem; }
+.tribute-photo { margin: 0 0 2rem; }
+.tribute-photo img { width: 100%; border-radius: 16px; object-fit: cover; }
+.tribute-photo figcaption { margin-top: 0.4rem; color: $muted; font-size: 0.9rem; text-align: center; }
+.tribute-hero { max-width: 520px; margin: 0 auto 2.5rem; }
+.tribute-hero img, .tribute-hero .photo-placeholder { aspect-ratio: 4 / 3; }
+.photo-placeholder {
+  aspect-ratio: 1;
+  border: 2px dashed rgba(255, 255, 255, 0.35);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.tribute-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+.tribute-gallery .tribute-photo { margin: 0; }
+.tribute-gallery img { aspect-ratio: 1; }
+.tribute-closing { margin-top: 2.5rem; font-weight: 600; }
 
 // Buttons
 .btn {
@@ -613,6 +645,7 @@ img { max-width: 100%; display: block; }
   gap: 0.5rem;
 }
 .reg-hint { color: $muted; font-size: 0.92rem; margin: 0; }
+.reg-media { border-left-color: $light-blue; }
 .chip small { color: $muted; font-weight: 400; }
 .choice-col .chip small { display: block; font-size: 0.88rem; }
 
