@@ -29,25 +29,10 @@
   }
 
   // ----- Team cards -----
-  // Very dark team colors (like black) get light text so they show on the dark page
-  function luminance(color) {
-    const probe = document.createElement("span");
-    probe.style.color = color;
-    document.body.appendChild(probe);
-    const rgb = getComputedStyle(probe).color.match(/\d+/g) || [255, 255, 255];
-    probe.remove();
-    return (0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]) / 255;
-  }
-
   function teamCard(t, selected) {
     const full = t.left <= 0;
     const card = el("label", "team-card" + (full ? " is-full" : ""));
-    if (t.color) {
-      card.style.setProperty("--c", t.color);
-      const lum = luminance(t.color);
-      if (lum < 0.12) card.classList.add("is-dark");   // near-black colors: white team name
-      if (lum < 0.08) card.classList.add("is-black");  // black: white outline too
-    }
+    if (t.color) card.style.setProperty("--c", t.color);
 
     const input = document.createElement("input");
     input.type = "radio";

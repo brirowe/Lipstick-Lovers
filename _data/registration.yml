@@ -48,7 +48,7 @@ games:
 
 # Sample teams shown while registration is closed (preview mode)
 preview_teams:
-  - { name: "ACAB FC",         color: "#000000" }
+  - { name: "ACAB FC",         color: "#a0a0a8" }
   - { name: "Cleated Rivalry", color: "#c3a6ff" }
   - { name: "Hot to Goal!",    color: "#ff8c1a" }
   - { name: "Kicks & Giggles", color: "#1a3dff" }

@@ -629,11 +629,6 @@ img { max-width: 100%; display: block; }
 .team-card.is-full:hover { transform: none; border-color: rgba(255, 255, 255, 0.15); }
 .team-card.no-pref { --c: #{$text}; }
 // Very dark team colors (e.g. black): light name + outline so they still show
-.team-card.is-dark .team-name { color: $text; }
-.team-card.is-black .team-bar span { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6); }
-.team-card.is-black:hover,
-.team-card.is-black:has(input:checked) { border-color: $text; }
-.team-card.is-black:has(input:checked) { box-shadow: 0 0 0 1px $text, 0 0 22px -6px $text; }
 
 .reg-agreements {
   margin: 0.25rem 0 0.75rem;
