@@ -193,6 +193,10 @@ art_hero: ""
   <h2>You're registered!</h2>
   <p class="big">Team: <span id="reg-done-team"></span></p>
   <p id="reg-done-pay"></p>
+  {% if site.discord_invite != "" %}
+  <p>Join the league Discord to meet your team and get game day updates.</p>
+  <p><a class="btn btn-register" href="{{ site.discord_invite }}" target="_blank" rel="noopener">Join the Discord</a></p>
+  {% endif %}
   <p>Questions? <a href="{{ '/contact/' | relative_url }}">Contact us</a>.</p>
 </section>
 

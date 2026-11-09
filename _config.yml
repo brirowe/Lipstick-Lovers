@@ -37,6 +37,8 @@ league_email: "lipsticklovers@example.com"   # shared league inbox
 # e.g. "https://formspree.io/f/abcdwxyz"
 contact_form_action: ""
 
+discord_invite: "https://discord.gg/FwmAs8Wdc"   # league Discord invite link, e.g. "https://discord.gg/abc123"
+
 social:
   instagram: ""   # full URL
   # add more here if you want, e.g. tiktok: "https://..."
