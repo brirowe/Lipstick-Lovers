@@ -45,7 +45,7 @@
     if (t.color) {
       card.style.setProperty("--c", t.color);
       const lum = luminance(t.color);
-      if (lum < 0.3) card.classList.add("is-dark");    // dark colors: white team name
+      if (lum < 0.12) card.classList.add("is-dark");   // near-black colors: white team name
       if (lum < 0.08) card.classList.add("is-black");  // black: white outline too
     }
 
