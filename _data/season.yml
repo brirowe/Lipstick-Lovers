@@ -6,8 +6,8 @@ current:
   details: "Monday evenings"   # e.g. day of week, time, and field location
 
 upcoming:
-  status: "To be decided"
-  start: ""
+  status: "Sunday evenings"
+  start: "Sunday, December 6"
   registration_opens: ""
   registration_closes: ""
 

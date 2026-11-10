@@ -8,17 +8,27 @@ season_cost: 50          # full season price in dollars
 payment_tiers: [0, 50, 100, 150]   # percent of season cost
 venmo_handle: "@username"          # who to send Venmo payments to (PLACEHOLDER)
 cash_note: "Bring cash to your first game."   # shown when someone picks Cash (PLACEHOLDER)
+cash_note_es: "Trae el efectivo a tu primer partido."
 
-# Lowest to highest. "name" is what gets saved to the Sheet.
+# Lowest to highest. "name" is what gets saved to the Sheet (always English).
+# The _es lines are what Spanish readers see.
 levels:
   - name: "Recreational"
     description: "New to soccer or very little experience"
+    name_es: "Recreativo"
+    description_es: "Poca o ninguna experiencia en el fútbol"
   - name: "Beginner"
     description: "Played a little, (like pickup, casual rec, or as a kid)"
+    name_es: "Principiante"
+    description_es: "Has jugado un poco (como partidos casuales, liga recreativa o en la infancia)"
   - name: "Intermediate"
     description: "Played regularly, like high school, club, or several seasons of adult league"
+    name_es: "Intermedio"
+    description_es: "Has jugado con regularidad, como en la prepa, un club o varias temporadas de liga adulta"
   - name: "Advanced"
     description: "Played in college or in a highly competitive adult league"
+    name_es: "Avanzado"
+    description_es: "Has jugado en la universidad o en una liga adulta muy competitiva"
 
 # People can pick more than one
 positions:
@@ -27,12 +37,25 @@ positions:
   - "Midfielder"
   - "Forward"
   - "Anywhere"
+# Spanish versions, same order as above
+positions_es:
+  - "Portería"
+  - "Defensa"
+  - "Mediocampo"
+  - "Delantera"
+  - "Donde sea"
 
 sub_note: "While we love our subs... subbing doesn't mean guaranteed playing time. Please be respectful of the players who are on a given team roster. That said, we'd love to have you participate as much as you want!"
+sub_note_es: "Nos encantan nuestros suplentes... pero ser suplente no garantiza tiempo de juego. Por favor respeta a quienes están en la lista de cada equipo. ¡Dicho esto, nos encantaría que participes todo lo que quieras!"
 sub_options:
   - "Not interested in subbing"
   - "I'd like to sub occasionally"
   - "I'd like to sub every week"
+# Spanish versions, same order as above
+sub_options_es:
+  - "No me interesa ser suplente"
+  - "Me gustaría ser suplente de vez en cuando"
+  - "Me gustaría ser suplente cada semana"
 
 # One line per game. These show as checkboxes.
 games:
@@ -45,6 +68,16 @@ games:
   - "Sun, Jan 10 (evening)"
   - "Sun, Jan 17 (evening)"
   - "Sun, Jan 24 (evening)"
+# Spanish versions, same order as above
+games_es:
+  - "Dom, 6 de dic (noche)"
+  - "Dom, 13 de dic (noche)"
+  - "Dom, 20 de dic (noche)"
+  - "Dom, 27 de dic (noche)"
+  - "Dom, 3 de ene (noche)"
+  - "Dom, 10 de ene (noche)"
+  - "Dom, 17 de ene (noche)"
+  - "Dom, 24 de ene (noche)"
 
 # Sample teams shown while registration is closed (preview mode)
 preview_teams:
@@ -57,8 +90,6 @@ preview_teams:
   - { name: "Scissor Kickers", color: "#2ed15b" }
   - { name: "Uhaul United",    color: "#ff3b3b" }
 
-# Media disclaimer on the registration form (one bullet per line)
-media_disclaimer:
-  - "Players and organizers take photos and videos throughout the season, and some may end up on our social media. People aren't tagged."
-  - "Please check in with each other before taking pictures, and feel free to opt out of group photos. It's absolutely okay to not want to be in them!"
-  - "Don't want to be on our social media at all? Contact us through the website and we'll do our best to accommodate. Thank you!"
+# Media disclaimer on the registration form (one paragraph)
+media_disclaimer: "Photos and videos are taken throughout the season, and some may be posted on our social media without tags. Please check with each other before taking pictures, and feel free to skip group photos. Don't want to be on our social media at all? Contact us and we'll do our best to accommodate."
+media_disclaimer_es: "Durante la temporada se toman fotos y videos, y algunos pueden publicarse en nuestras redes sociales sin etiquetar a nadie. Por favor pregúntense antes de tomar fotos, y está bien no salir en las fotos de grupo. ¿No quieres aparecer en nuestras redes sociales? Contáctanos y haremos lo posible por respetarlo."

@@ -7,14 +7,16 @@ art_hero: ""
 {% comment %} Internal form: not in the nav, only shared by link. {% endcomment %}
 {% assign f = site.data.internal_forms.feedback %}
 
-<h2 class="section-title">Season Feedback</h2>
+<h2 class="section-title" data-es="Opiniones de la temporada">Season Feedback</h2>
+
+{% include lang-toggle.html %}
 
 <form class="card card-wide reg-form js-simple-form" data-form="feedback" data-endpoint="{{ site.registration.script_url }}">
-  <p class="reg-hint">{{ f.intro }}</p>
+  <p class="reg-hint" data-es="{{ f.intro_es | default: f.intro | escape }}">{{ f.intro }}</p>
   <input type="hidden" name="season" value="{{ f.season }}">
 
   <div class="reg-q">
-    <span>How was your season? <span class="req">*</span></span>
+    <span><span data-es="¿Qué tal tu temporada?">How was your season?</span> <span class="req">*</span></span>
     <div class="choice-row">
       {% for n in f.ratings %}
       <label class="chip"><input type="radio" name="rating" value="{{ n }}" required><span>{{ n }}</span></label>
@@ -22,25 +24,25 @@ art_hero: ""
     </div>
   </div>
 
-  <label><span>What did you love? <span class="req">*</span></span>
+  <label><span><span data-es="¿Qué te encantó?">What did you love?</span> <span class="req">*</span></span>
     <textarea name="enjoyed" rows="3" required></textarea>
   </label>
 
-  <label><span>What could be better? <span class="req">*</span></span>
+  <label><span><span data-es="¿Qué podría mejorar?">What could be better?</span> <span class="req">*</span></span>
     <textarea name="improve" rows="3" required></textarea>
   </label>
 
-  <label><span>Name <span class="muted">(optional)</span></span>
+  <label><span><span data-es="Nombre">Name</span> <span class="muted" data-es="(opcional)">(optional)</span></span>
     <input type="text" name="name">
   </label>
 
   <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
   <p class="reg-error js-error" role="alert" hidden></p>
-  <button class="btn btn-register" type="submit">Send</button>
+  <button class="btn btn-register" type="submit" data-es="Enviar">Send</button>
 </form>
 
 <section class="card card-wide reg-done js-done" hidden>
-  <h2>Thank you!</h2>
+  <h2 data-es="¡Gracias!">Thank you!</h2>
 </section>
 
 <script src="{{ '/assets/js/forms.js' | relative_url }}" defer></script>

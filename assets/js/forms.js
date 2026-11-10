@@ -8,7 +8,9 @@
     const errorBox = form.querySelector(".js-error");
     const done = form.nextElementSibling;
     const btn = form.querySelector('button[type="submit"]');
-    const btnText = btn.textContent;
+    const btnEn = btn.dataset.en || btn.textContent;
+    // T("English", "Español") picks the current language (see lang.js)
+    function T(en, es) { return window.L ? window.L(en, es) : en; }
 
     function showError(msg) {
       errorBox.textContent = msg || "";
@@ -24,13 +26,13 @@
       const groups = form.querySelectorAll("[data-required-group]");
       for (const g of groups) {
         if (!g.querySelector("input:checked")) {
-          showError("Please pick at least one option for: " + g.querySelector("span").textContent.replace("*", "").trim());
+          showError(T("Please pick at least one option for: ", "Elige al menos una opción para: ") + g.querySelector("span").textContent.replace("*", "").trim());
           return;
         }
       }
 
       if (!endpoint) {
-        showError("Not connected to the Google Sheet yet, so nothing was submitted.");
+        showError(T("Not connected to the Google Sheet yet, so nothing was submitted.", "Aún no está conectado a la hoja de Google, así que no se envió nada."));
         return;
       }
 
@@ -42,7 +44,7 @@
       });
 
       btn.disabled = true;
-      btn.textContent = "Sending...";
+      btn.textContent = T("Sending...", "Enviando...");
 
       fetch(endpoint, {
         method: "POST",
@@ -52,7 +54,7 @@
         .then(function (r) { return r.json(); })
         .then(function (out) {
           if (!out.ok) {
-            showError(out.error || "Something went wrong. Please try again.");
+            showError(out.error || T("Something went wrong. Please try again.", "Algo salió mal. Inténtalo de nuevo."));
             return;
           }
           form.hidden = true;
@@ -60,11 +62,11 @@
           done.scrollIntoView({ behavior: "smooth", block: "center" });
         })
         .catch(function () {
-          showError("Couldn't reach the server. Check your connection and try again.");
+          showError(T("Couldn't reach the server. Check your connection and try again.", "No pudimos conectar con el servidor. Revisa tu conexión e inténtalo de nuevo."));
         })
         .finally(function () {
           btn.disabled = false;
-          btn.textContent = btnText;
+          btn.textContent = T(btn.dataset.en || btnEn, btn.dataset.es || btnEn);
         });
     });
   });

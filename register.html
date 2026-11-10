@@ -6,128 +6,131 @@ art_hero: ""
 ---
 
 {% assign r = site.data.registration %}
+{% comment %} Spanish text sits in data-es="" right next to the English. Answer values stay English so the Sheet stays consistent. {% endcomment %}
 
-<h2 class="section-title">Register</h2>
+<h2 class="section-title" data-es="Inscripción">Register</h2>
+
+{% include lang-toggle.html %}
 
 {% comment %} When registration.open is false, the form shows in preview mode: sample teams, submit turned off. {% endcomment %}
 {% unless site.registration.open %}
-<p class="reg-preview">Preview only. Registration isn't open yet, so nothing will be submitted.</p>
+<p class="reg-preview" data-es="Solo vista previa. La inscripción aún no está abierta, así que no se enviará nada.">Preview only. Registration isn't open yet, so nothing will be submitted.</p>
 {% endunless %}
 
 <form id="reg-form" class="card card-wide reg-form" data-endpoint="{{ site.registration.script_url }}"{% unless site.registration.open %} data-preview="true"{% endunless %}>
 
   <!-- ===== Before You Register ===== -->
   <fieldset>
-    <legend>Before You Register</legend>
+    <legend data-es="Antes de inscribirte">Before You Register</legend>
 
     <div class="reg-q">
-      <span>Community Agreements</span>
+      <span data-es="Acuerdos de la comunidad">Community Agreements</span>
       <ol class="reg-agreements">
         {% for a in site.data.agreements %}
-        <li>{{ a.text }}</li>
+        <li data-es="{{ a.text_es | default: a.text | escape }}">{{ a.text }}</li>
         {% endfor %}
       </ol>
-      <label class="chip"><input type="checkbox" name="agree_agreements" value="Yes" required><span>I agree to the Lipstick Lovers community agreements <span class="req">*</span></span></label>
+      <label class="chip"><input type="checkbox" name="agree_agreements" value="Yes" required><span><span data-es="Acepto los acuerdos de la comunidad de Lipstick Lovers">I agree to the Lipstick Lovers community agreements</span> <span class="req">*</span></span></label>
     </div>
 
     <div class="reg-q">
-      <span>Lipstick Lovers is a queer only league, if you do not identify as queer please do not register.</span>
-      <label class="chip"><input type="checkbox" name="confirm_queer" value="Yes" required><span>I confirm I'm queer <span class="req">*</span></span></label>
+      <span data-es="Lipstick Lovers es una liga solo para personas queer. Si no te identificas como queer, por favor no te inscribas.">Lipstick Lovers is a queer only league, if you do not identify as queer please do not register.</span>
+      <label class="chip"><input type="checkbox" name="confirm_queer" value="Yes" required><span><span data-es="Confirmo que soy queer">I confirm I'm queer</span> <span class="req">*</span></span></label>
     </div>
   </fieldset>
 
   <!-- ===== About You ===== -->
   <fieldset>
-    <legend>About You</legend>
+    <legend data-es="Sobre ti">About You</legend>
 
     <div class="reg-row">
-      <label><span>First Name <span class="req">*</span></span>
+      <label><span><span data-es="Nombre">First Name</span> <span class="req">*</span></span>
         <input type="text" name="first_name" autocomplete="given-name" required>
       </label>
-      <label><span>Last Name <span class="req">*</span></span>
+      <label><span><span data-es="Apellido">Last Name</span> <span class="req">*</span></span>
         <input type="text" name="last_name" autocomplete="family-name" required>
       </label>
     </div>
 
-    <label><span>Pronouns</span>
+    <label><span data-es="Pronombres">Pronouns</span>
       <input type="text" name="pronouns">
     </label>
 
     <div class="reg-row">
-      <label><span>Phone Number <span class="req">*</span></span>
+      <label><span><span data-es="Número de teléfono">Phone Number</span> <span class="req">*</span></span>
         <input type="tel" name="phone" autocomplete="tel" required>
       </label>
-      <label><span>Email <span class="req">*</span></span>
+      <label><span><span data-es="Correo electrónico">Email</span> <span class="req">*</span></span>
         <input type="email" name="email" autocomplete="email" required>
       </label>
     </div>
 
-    <label><span>Discord Username <span class="req">*</span></span>
+    <label><span><span data-es="Usuario de Discord">Discord Username</span> <span class="req">*</span></span>
       <input type="text" name="discord" autocomplete="off" required>
     </label>
 
-    <label><span>Birthday <span class="req">*</span></span>
-      <input type="text" name="birthday" id="birthday" inputmode="numeric" autocomplete="bday" placeholder="MM/DD/YYYY" maxlength="10" pattern="(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(19|20)[0-9]{2}" title="MM/DD/YYYY" required>
+    <label><span><span data-es="Fecha de nacimiento">Birthday</span> <span class="req">*</span></span>
+      <input type="text" name="birthday" id="birthday" inputmode="numeric" autocomplete="bday" placeholder="MM/DD/YYYY" data-es-placeholder="MM/DD/AAAA" maxlength="10" pattern="(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(19|20)[0-9]{2}" title="MM/DD/YYYY" required>
     </label>
   </fieldset>
 
   <!-- ===== Identity ===== -->
   <fieldset>
-    <legend>Identity</legend>
+    <legend data-es="Identidad">Identity</legend>
 
-    <label><span>Please self-describe your gender identity</span>
+    <label><span data-es="Describe tu identidad de género con tus propias palabras">Please self-describe your gender identity</span>
       <input type="text" name="gender_identity">
     </label>
 
-    <label><span>Please self-describe your racial/ethnic identity</span>
+    <label><span data-es="Describe tu identidad racial/étnica con tus propias palabras">Please self-describe your racial/ethnic identity</span>
       <input type="text" name="racial_ethnic_identity">
     </label>
   </fieldset>
 
   <!-- ===== Team Selection and Soccer Information ===== -->
   <fieldset>
-    <legend>Playing</legend>
+    <legend data-es="Juego">Playing</legend>
 
     <div class="reg-q">
-      <span>Is this your first time playing with Lipstick Lovers? <span class="req">*</span></span>
+      <span><span data-es="¿Es tu primera vez jugando con Lipstick Lovers?">Is this your first time playing with Lipstick Lovers?</span> <span class="req">*</span></span>
       <div class="choice-row">
-        <label class="chip"><input type="radio" name="first_time" value="Yes" required><span>Yes</span></label>
-        <label class="chip"><input type="radio" name="first_time" value="No"><span>No</span></label>
+        <label class="chip"><input type="radio" name="first_time" value="Yes" required><span data-es="Sí">Yes</span></label>
+        <label class="chip"><input type="radio" name="first_time" value="No"><span data-es="No">No</span></label>
       </div>
     </div>
 
     <div class="reg-q">
-      <span>What team do you prefer to play on? <span class="req">*</span></span>
-      <p class="reg-hint">If you would like to be on the same team as another player(s), please choose the same team. Open spots on each team are displayed below.</p>
+      <span><span data-es="¿En qué equipo prefieres jugar?">What team do you prefer to play on?</span> <span class="req">*</span></span>
+      <p class="reg-hint" data-es="Si quieres estar en el mismo equipo que otra(s) persona(s), elijan el mismo equipo. Abajo se muestran los lugares disponibles en cada equipo.">If you would like to be on the same team as another player(s), please choose the same team. Open spots on each team are displayed below.</p>
       <div id="team-list" class="team-list">
-        <p class="muted">Loading teams...</p>
+        <p class="muted" data-es="Cargando equipos...">Loading teams...</p>
       </div>
     </div>
 
     <div class="reg-q">
-      <span>Which of the following levels best describes you? <span class="req">*</span></span>
+      <span><span data-es="¿Qué nivel te describe mejor?">Which of the following levels best describes you?</span> <span class="req">*</span></span>
       <div class="choice-col">
         {% for level in r.levels %}
-        <label class="chip"><input type="radio" name="level" value="{{ level.name }}" required><span><strong>{{ level.name }}</strong> <small>{{ level.description }}</small></span></label>
+        <label class="chip"><input type="radio" name="level" value="{{ level.name }}" required><span><strong data-es="{{ level.name_es | default: level.name | escape }}">{{ level.name }}</strong> <small data-es="{{ level.description_es | default: level.description | escape }}">{{ level.description }}</small></span></label>
         {% endfor %}
       </div>
     </div>
 
     <div class="reg-q">
-      <span>Preferred Position <span class="req">*</span></span>
-      <span class="reg-hint">Pick as many as you like.</span>
+      <span><span data-es="Posición preferida">Preferred Position</span> <span class="req">*</span></span>
+      <span class="reg-hint" data-es="Elige todas las que quieras.">Pick as many as you like.</span>
       <div class="choice-row">
         {% for p in r.positions %}
-        <label class="chip"><input type="checkbox" name="position" value="{{ p }}"><span>{{ p }}</span></label>
+        <label class="chip"><input type="checkbox" name="position" value="{{ p }}"><span data-es="{{ r.positions_es[forloop.index0] | default: p | escape }}">{{ p }}</span></label>
         {% endfor %}
       </div>
     </div>
 
     <div class="reg-q">
-      <span>Which games can you attend? <span class="req">*</span></span>
+      <span><span data-es="¿A qué partidos puedes ir?">Which games can you attend?</span> <span class="req">*</span></span>
       <div class="choice-row">
         {% for g in r.games %}
-        <label class="chip"><input type="checkbox" name="games" value="{{ g }}"><span>{{ g }}</span></label>
+        <label class="chip"><input type="checkbox" name="games" value="{{ g }}"><span data-es="{{ r.games_es[forloop.index0] | default: g | escape }}">{{ g }}</span></label>
         {% endfor %}
       </div>
     </div>
@@ -135,14 +138,14 @@ art_hero: ""
 
   <!-- ===== Subbing ===== -->
   <fieldset>
-    <legend>Subbing</legend>
+    <legend data-es="Suplencias">Subbing</legend>
 
     <div class="reg-q">
-      <span>What is your interest in subbing for other teams? <span class="req">*</span></span>
-      <p class="reg-hint">{{ r.sub_note }}</p>
+      <span><span data-es="¿Te interesa ser suplente en otros equipos?">What is your interest in subbing for other teams?</span> <span class="req">*</span></span>
+      <p class="reg-hint" data-es="{{ r.sub_note_es | default: r.sub_note | escape }}">{{ r.sub_note }}</p>
       <div class="choice-col">
         {% for o in r.sub_options %}
-        <label class="chip"><input type="radio" name="sub_interest" value="{{ o }}" required><span>{{ o }}</span></label>
+        <label class="chip"><input type="radio" name="sub_interest" value="{{ o }}" required><span data-es="{{ r.sub_options_es[forloop.index0] | default: o | escape }}">{{ o }}</span></label>
         {% endfor %}
       </div>
     </div>
@@ -150,25 +153,21 @@ art_hero: ""
 
   <!-- ===== Media Disclaimer ===== -->
   <fieldset>
-    <legend>Media Disclaimer</legend>
+    <legend data-es="Aviso sobre fotos y videos">Media Disclaimer</legend>
 
     <div class="reg-q">
-      <ul class="reg-agreements reg-media">
-        {% for m in r.media_disclaimer %}
-        <li>{{ m }}</li>
-        {% endfor %}
-      </ul>
-      <label class="chip"><input type="checkbox" name="agree_media" value="Yes" required><span>I've read the media disclaimer <span class="req">*</span></span></label>
+      <p class="reg-agreements reg-media" data-es="{{ r.media_disclaimer_es | default: r.media_disclaimer | escape }}">{{ r.media_disclaimer }}</p>
+      <label class="chip"><input type="checkbox" name="agree_media" value="Yes" required><span><span data-es="He leído el aviso sobre fotos y videos">I've read the media disclaimer</span> <span class="req">*</span></span></label>
     </div>
   </fieldset>
 
   <!-- ===== Payment ===== -->
   <fieldset>
-    <legend>Payment</legend>
+    <legend data-es="Pago">Payment</legend>
 
     <div class="reg-q">
-      <span>How much are you able to pay? <span class="req">*</span></span>
-      <span class="reg-hint">Sliding scale based on the ${{ r.season_cost }} season cost. Pay what works for you, paying extra helps to support players who need financial assistance.</span>
+      <span><span data-es="¿Cuánto puedes pagar?">How much are you able to pay?</span> <span class="req">*</span></span>
+      <span class="reg-hint" data-es="Escala variable basada en el costo de la temporada de ${{ r.season_cost }}. Paga lo que te funcione; pagar de más ayuda a quienes necesitan apoyo económico.">Sliding scale based on the ${{ r.season_cost }} season cost. Pay what works for you, paying extra helps to support players who need financial assistance.</span>
       <div class="choice-row">
         {% for pct in r.payment_tiers %}
         {% assign amt = r.season_cost | times: pct | divided_by: 100.0 | round %}
@@ -178,19 +177,19 @@ art_hero: ""
     </div>
 
     <div id="pay-method" class="reg-q" hidden>
-      <span>How do you want to pay? <span class="req">*</span></span>
+      <span><span data-es="¿Cómo quieres pagar?">How do you want to pay?</span> <span class="req">*</span></span>
       <div class="choice-row">
-        <label class="chip"><input type="radio" name="payment_method" value="Cash"><span>Cash</span></label>
+        <label class="chip"><input type="radio" name="payment_method" value="Cash"><span data-es="Efectivo">Cash</span></label>
         <label class="chip"><input type="radio" name="payment_method" value="Venmo"><span>Venmo</span></label>
       </div>
-      <p id="pay-cash" class="reg-hint" hidden>{{ r.cash_note }}</p>
+      <p id="pay-cash" class="reg-hint" data-es="{{ r.cash_note_es | default: r.cash_note | escape }}" hidden>{{ r.cash_note }}</p>
     </div>
 
     <div id="pay-venmo" class="reg-q" hidden>
-      <label><span>Your Venmo Username <span class="req">*</span></span>
-        <input type="text" name="venmo_username" placeholder="@yourname" autocomplete="off">
+      <label><span><span data-es="Tu usuario de Venmo">Your Venmo Username</span> <span class="req">*</span></span>
+        <input type="text" name="venmo_username" placeholder="@yourname" data-es-placeholder="@tunombre" autocomplete="off">
       </label>
-      <p class="reg-hint">Send <strong id="pay-venmo-amount"></strong> on Venmo to <strong>{{ r.venmo_handle }}</strong>.</p>
+      <p class="reg-hint"><span data-es="Envía">Send</span> <strong id="pay-venmo-amount"></strong> <span data-es="por Venmo a">on Venmo to</span> <strong>{{ r.venmo_handle }}</strong>.</p>
     </div>
   </fieldset>
 
@@ -200,24 +199,25 @@ art_hero: ""
 
   <p id="reg-error" class="reg-error" role="alert" hidden></p>
 
-  <button class="btn btn-register" type="submit">Submit Registration</button>
+  <button class="btn btn-register" type="submit" data-es="Enviar inscripción">Submit Registration</button>
 </form>
 
 <section id="reg-done" class="card card-wide reg-done" hidden>
-  <h2>You're registered!</h2>
-  <p class="big">Team: <span id="reg-done-team"></span></p>
+  <h2 data-es="¡Tu inscripción está lista!">You're registered!</h2>
+  <p class="big"><span data-es="Equipo:">Team:</span> <span id="reg-done-team"></span></p>
   <p id="reg-done-pay"></p>
   {% if site.discord_invite != "" %}
-  <p>Join the league Discord to meet your team and get game day updates.</p>
-  <p><a class="btn btn-register" href="{{ site.discord_invite }}" target="_blank" rel="noopener">Join the Discord</a></p>
+  <p data-es="Únete al Discord de la liga para conocer a tu equipo y recibir avisos de los partidos.">Join the league Discord to meet your team and get game day updates.</p>
+  <p><a class="btn btn-register" href="{{ site.discord_invite }}" target="_blank" rel="noopener" data-es="Únete al Discord">Join the Discord</a></p>
   {% endif %}
-  <p>Questions? <a href="{{ '/contact/' | relative_url }}">Contact us</a>.</p>
+  <p><span data-es="¿Preguntas?">Questions?</span> <a href="{{ '/contact/' | relative_url }}" data-es="Contáctanos">Contact us</a>.</p>
 </section>
 
 <script>
   window.REG = {
     venmoHandle: {{ r.venmo_handle | jsonify }},
     cashNote: {{ r.cash_note | jsonify }},
+    cashNoteEs: {{ r.cash_note_es | default: r.cash_note | jsonify }},
     previewTeams: {{ r.preview_teams | jsonify }}
   };
 </script>

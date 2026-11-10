@@ -1,12 +1,16 @@
 # Community Agreements (About page)
 # Add, remove, or reorder. Each card cycles to the next pride color automatically.
-
-# Community Agreements (About page)
-# Add, remove, or reorder. Each card cycles to the next pride color automatically.
+# text_es is the Spanish version shown on the registration form.
 
 - text: "We are here to play soccer joyfully and safely."
+  text_es: "Estamos aquí para jugar fútbol con alegría y de forma segura."
 - text: "We are here to build community with one another."
+  text_es: "Estamos aquí para construir comunidad en conjunto."
 - text: "We don't slide tackle, use our arms, or body check each other. If someone seems hurt, we pause play and check in."
+  text_es: "No hacemos barridas, no usamos los brazos ni empujamos con el cuerpo. Si parece que alguien se lastimó, paramos el juego y preguntamos cómo está."
 - text: "If we're experiencing a problem, we talk directly to the people involved."
+  text_es: "Si tenemos un problema, hablamos directamente con las personas involucradas."
 - text: "We are aware of our bodies, how they affect others, and what they need."
+  text_es: "Somos conscientes de nuestros cuerpos, de cómo afectan a otras personas y de lo que necesitan."
 - text: "We are here to have fun, play soccer, look out for each other, and be queer."
+  text_es: "Estamos aquí para divertirnos, jugar fútbol, cuidarnos mutuamente y ser queer."

@@ -11,8 +11,14 @@
   const errorBox = document.getElementById("reg-error");
   const submitBtn = form.querySelector('button[type="submit"]');
   const done = document.getElementById("reg-done");
-  const NO_PREF = "No preference";
-  const BTN_TEXT = submitBtn.textContent;
+  const NO_PREF = "No preference";   // value saved to the Sheet (always English)
+  // English text of the button (lang.js keeps it in data-en once Spanish is used)
+  const BTN_EN = submitBtn.dataset.en || submitBtn.textContent;
+  let lastTeams = [];
+
+  // T("English", "Español") picks the current language (see lang.js)
+  function T(en, es) { return window.L ? window.L(en, es) : en; }
+  function btnText() { return T(submitBtn.dataset.en || BTN_EN, submitBtn.dataset.es || BTN_EN); }
 
   // ----- Helpers -----
   function showError(msg) {
@@ -52,7 +58,10 @@
     bar.appendChild(fill);
     card.appendChild(bar);
 
-    const leftText = t.left + " of " + t.max + " spot" + (t.max === 1 ? "" : "s") + " left";
+    const leftText = T(
+      t.left + " of " + t.max + " spot" + (t.max === 1 ? "" : "s") + " left",
+      "Quedan " + t.left + " de " + t.max + " lugar" + (t.max === 1 ? "" : "es")
+    );
     card.appendChild(el("span", "team-left", leftText));
     return card;
   }
@@ -65,14 +74,15 @@
     input.value = NO_PREF;
     input.checked = selected === NO_PREF;
     card.appendChild(input);
-    card.appendChild(el("span", "team-name", NO_PREF));
-    card.appendChild(el("span", "team-desc", "Put me wherever there's room"));
+    card.appendChild(el("span", "team-name", T(NO_PREF, "Sin preferencia")));
+    card.appendChild(el("span", "team-desc", T("Put me wherever there's room", "Ponme donde haya lugar")));
     return card;
   }
 
   function renderTeams(teams) {
     const checked = form.querySelector('input[name="team"]:checked');
     const selected = checked ? checked.value : null;
+    lastTeams = teams;
     teamList.innerHTML = "";
     teams.forEach(function (t) { teamList.appendChild(teamCard(t, selected)); });
     teamList.appendChild(noPrefCard(selected));
@@ -88,7 +98,7 @@
       })
       .catch(function () {
         teamList.innerHTML = "";
-        teamList.appendChild(el("p", "reg-error", "Couldn't load teams. Refresh the page to try again."));
+        teamList.appendChild(el("p", "reg-error", T("Couldn't load teams. Refresh the page to try again.", "No se pudieron cargar los equipos. Recarga la página para intentarlo de nuevo.")));
       });
   }
 
@@ -134,6 +144,11 @@
   });
   updatePayment();
 
+  // Language switch: redraw team cards in the new language
+  document.addEventListener("langchange", function () {
+    if (lastTeams.length) renderTeams(lastTeams);
+  });
+
   // Preview mode (registration closed) or not connected yet: sample teams, no submitting
   if (form.dataset.preview || !endpoint) {
     renderTeams((window.REG.previewTeams || []).map(function (t) {
@@ -141,7 +156,7 @@
     }));
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      showError("Preview only. Registration isn't open yet, so nothing was submitted.");
+      showError(T("Preview only. Registration isn't open yet, so nothing was submitted.", "Solo vista previa. La inscripción aún no está abierta, así que no se envió nada."));
     }, true);
     return;
   }
@@ -160,12 +175,12 @@
     const fd = new FormData(form);
     const positions = fd.getAll("position");
     if (!positions.length) {
-      showError("Pick at least one preferred position.");
+      showError(T("Pick at least one preferred position.", "Elige al menos una posición preferida."));
       return;
     }
     const games = fd.getAll("games");
     if (!games.length) {
-      showError("Pick at least one game you can attend.");
+      showError(T("Pick at least one game you can attend.", "Elige al menos un partido al que puedas ir."));
       return;
     }
 
@@ -181,7 +196,7 @@
     if (payVenmo.hidden) data.venmo_username = "";
 
     submitBtn.disabled = true;
-    submitBtn.textContent = "Submitting...";
+    submitBtn.textContent = T("Submitting...", "Enviando...");
 
     // text/plain avoids a CORS preflight, which Apps Script can't answer
     fetch(endpoint, {
@@ -193,15 +208,15 @@
       .then(function (out) {
         if (out.teams) renderTeams(out.teams);
         if (!out.ok) {
-          showError(out.error || "Something went wrong. Please try again.");
+          showError(out.error || T("Something went wrong. Please try again.", "Algo salió mal. Inténtalo de nuevo."));
           return;
         }
         document.getElementById("reg-done-team").textContent = data.team;
         let payMsg = "";
         if (data.payment_method === "Venmo") {
-          payMsg = "Please send " + data.payment_amount + " on Venmo to " + window.REG.venmoHandle + ".";
+          payMsg = T("Please send ", "Por favor envía ") + data.payment_amount + T(" on Venmo to ", " por Venmo a ") + window.REG.venmoHandle + ".";
         } else if (data.payment_method === "Cash") {
-          payMsg = "Payment: " + data.payment_amount + " cash. " + window.REG.cashNote;
+          payMsg = T("Payment: ", "Pago: ") + data.payment_amount + T(" cash. ", " en efectivo. ") + T(window.REG.cashNote, window.REG.cashNoteEs);
         }
         document.getElementById("reg-done-pay").textContent = payMsg;
         form.hidden = true;
@@ -209,11 +224,11 @@
         done.scrollIntoView({ behavior: "smooth", block: "center" });
       })
       .catch(function () {
-        showError("Couldn't reach the registration server. Check your connection and try again.");
+        showError(T("Couldn't reach the registration server. Check your connection and try again.", "No pudimos conectar con el servidor de inscripción. Revisa tu conexión e inténtalo de nuevo."));
       })
       .finally(function () {
         submitBtn.disabled = false;
-        submitBtn.textContent = BTN_TEXT;
+        submitBtn.textContent = btnText();
       });
   });
 })();
